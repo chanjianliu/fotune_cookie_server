@@ -1,5 +1,6 @@
 const morgan = require('morgan');
 const express = require('express');
+const cors = require('cors');
 
 const cookies = require('./fortune-cookie');
 
@@ -13,6 +14,9 @@ console.info(getCookie());
 const port = parseInt(process.env.PORT) || 3000;
 
 const app = express();
+
+//use cors on all request
+app.use(cors());
 
 // log all request
 app.use(morgan('combined'));
